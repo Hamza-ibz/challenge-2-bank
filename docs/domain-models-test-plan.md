@@ -34,37 +34,22 @@ As a customer, <br>
 I want to be able to access my account, <br>
 So that I can view my account details. <br>
 
-| Object |    Properties     |         Messages          |  Output  |
-| :----: | :---------------: | :-----------------------: | :------: |
-|  User  | userName(@String) | login(userName, password) | @boolean |
-|        | password(@String) |                           |          |
-
+| Object |    Properties     |                Messages                 |  Output  |
+| :----: | :---------------: | :-------------------------------------: | :------: |
+|  User  | userName(@String) |              getUsername()              | @String  |
+|        | password(@String) |              getPassword()              | @String  |
+|        |                   | login(userName@String, password@String) | @boolean |
 #### User story 2:-
 As a customer, <br>
 I want to deposit funds into my account, <br>
 So that I can store my money safe in the bank. <br>
 
-| Object | Properties | Messages | Output |
-| :----: | :--------: | :------: | :----: |
-|        |            |          |        |
+|   Object    |         Properties          |                 Messages                 | Output  |
+| :---------: | :-------------------------: | :--------------------------------------: | :-----: |
+|    User     |   userActions@bankAccount   |  depositMoney(date@string,value@double)  |  @void  |
+| BankAccount | transactions@Array[@Object] | moneyDeposited(date@string,value@double) |  @void  |
+|             |       balance@double        |               getBalance()               | @double |
 
-#### User story 3:-
-As a customer, <br>
-I want to withdraw funds from my account, <br>
-So that I can spend my money. <br>
-
-| Object | Properties | Messages | Output |
-| :----: | :--------: | :------: | :----: |
-|        |            |          |        |
-
-#### User story 4:-
-As a customer, <br>
-I want to view my account statements, <br>
-So that I can see the transaction history. <br>
-
-| Object | Properties | Messages | Output |
-| :----: | :--------: | :------: | :----: |
-|        |            |          |        |
 
 
 ### Additional Features
