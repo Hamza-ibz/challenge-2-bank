@@ -44,34 +44,39 @@ As a customer, <br>
 I want to deposit funds into my account, <br>
 So that I can store my money safe in the bank. <br>
 
-|   Object    |         Properties          |                 Messages                 | Output  |
-| :---------: | :-------------------------: | :--------------------------------------: | :-----: |
-|    User     |   userActions@bankAccount   |  depositMoney(date@string,value@double)  |  @void  |
-| BankAccount | transactions@Array[@Object] | moneyDeposited(date@string,value@double) |  @void  |
-|             |       balance@double        |               getBalance()               | @double |
-
+|   Object    |            Properties            |                 Messages                 | Output  |
+| :---------: | :------------------------------: | :--------------------------------------: | :-----: |
+|    User     |     userActions@bankAccount      |  depositMoney(date@string,value@double)  |  @void  |
+| BankAccount | transactions@Array[@Transaction] | moneyDeposited(date@string,value@double) |  @void  |
+|             |          balance@double          |               getBalance()               | @double |
+| Transaction |          value(@double)          |                getValue()                | @double |
+|             |          date(@String)           |                getDate()                 | @String |
+|             |          type(@String)           |                getType()                 | @String |
 
 #### User story 3:-
 As a customer, <br>
 I want to withdraw funds from my account, <br>
 So that I can spend my money. <br>
 
-|   Object    |         Properties          |                 Messages                 | Output  |
-| :---------: | :-------------------------: | :--------------------------------------: | :-----: |
-|    User     |   userActions@bankAccount   | withdrawMoney(date@string,value@double)  |  @void  |
-| BankAccount | transactions@Array[@Object] | moneyWithdrawn(date@string,value@double) |  @void  |
-|             |       balance@double        |               getBalance()               | @double |
+|   Object    |            Properties            |                 Messages                 | Output  |
+| :---------: | :------------------------------: | :--------------------------------------: | :-----: |
+|    User     |     userActions@bankAccount      | withdrawMoney(date@string,value@double)  |  @void  |
+| BankAccount | transactions@Array[@Transaction] | moneyWithdrawn(date@string,value@double) |  @void  |
+|             |          balance@double          |               getBalance()               | @double |
+| Transaction |          value(@double)          |                getValue()                | @double |
+|             |          date(@String)           |                getDate()                 | @String |
+|             |          type(@String)           |                getType()                 | @String |
 
 #### User story 4:-
 As a customer, <br>
 I want to view my account statements, <br>
 So that I can see the transaction history. <br>
 
-|        Object        |         Properties          |             Messages             |     Output      |
-| :------------------: | :-------------------------: | :------------------------------: | :-------------: |
-|     BankAccount      |       balance@double        |           getBalance()           |     @double     |
-|                      | transactions@Array[@Object] |        getTransactions()         | @Array[@Object] |
-| BankStatementPrinter |                             | printBankStatement(@BankAccount) |     @String     |
+|        Object        |            Properties            |             Messages             |        Output        |
+| :------------------: | :------------------------------: | :------------------------------: | :------------------: |
+|     BankAccount      |          balance@double          |           getBalance()           |       @double        |
+|                      | transactions@Array[@Transaction] |        getTransactions()         | @Array[@Transaction] |
+| BankStatementPrinter |                                  | printBankStatement(@BankAccount) |       @String        |
 
 ### Additional Features
 
