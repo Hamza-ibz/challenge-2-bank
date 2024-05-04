@@ -43,6 +43,17 @@ class User {
         }
     }
 
+    withdrawMoney = (userAccount, transaction) => {
+
+        if (!userAccount?.moneyWithdrawn || !transaction?.getType) {
+            return false;
+        }
+        else {
+            userAccount.moneyWithdrawn(transaction);
+            return true;
+        }
+    }
+
 }
 
 export default User;

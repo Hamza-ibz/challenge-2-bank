@@ -71,7 +71,7 @@ describe('User tests:', () => {
 
             });
             transaction = jasmine.createSpyObj("transaction", {
-                getType: 'credit'
+                getType: 'Credit'
 
             });
 
@@ -79,6 +79,8 @@ describe('User tests:', () => {
         });
         afterEach(() => {
             user = undefined;
+            account = undefined;
+            transaction = undefined;
         });
 
         // it('Check userAccount is instance of a BankAccount', () => {
@@ -132,6 +134,88 @@ describe('User tests:', () => {
 
             // Assert
             expect(account.moneyDeposited).toHaveBeenCalled();
+
+        });
+    });
+
+
+
+
+    describe('User withdraw from an account', () => {
+
+        let user, account, transaction;
+        // let bankAccount = new BankAccount();
+
+        beforeEach(() => {
+            user = new User("Hamza", "Password");
+            account = jasmine.createSpyObj("account", {
+                moneyWithdrawn: []
+
+            });
+            transaction = jasmine.createSpyObj("transaction", {
+                getType: 'Debit'
+
+            });
+
+
+        });
+        afterEach(() => {
+            user = undefined;
+            account = undefined;
+            transaction = undefined;
+        });
+
+        // it('Check userAccount is instance of a BankAccount', () => {
+        //     // Arrange
+        //     // Act
+        //     // let actual = user.login(username, password);
+
+        //     // Assert
+        //     expect(user.getUserAccount()).toBeInstanceOf(BankAccount);
+
+        // });
+
+        it('Check argument for withdrawMoney, return false if argument is not a BankAccount instance', () => {
+            // Arrange
+            let expected = false;
+            // Act
+            let actual = user.withdrawMoney("bank", transaction);
+
+            // Assert
+            expect(expected).toEqual(actual);
+
+        });
+
+        it('Check argument for withdrawMoney, return false if argument is not a Transaction instance', () => {
+            // Arrange
+            let expected = false;
+            // Act
+            let actual = user.withdrawMoney(account, 12345);
+
+            // Assert
+            expect(expected).toEqual(actual);
+
+        });
+
+        it('should return true if instance of BankAccount and Transaction are used as arguments', () => {
+            // Arrange
+            let expected = true;
+            // Act
+            let actual = user.withdrawMoney(account, transaction);
+
+            // Assert
+            expect(expected).toEqual(actual);
+
+        });
+
+        it('should call the BankAccount moneyWithdrawn function when user withdraw from the Bank account', () => {
+            // Arrange
+
+            // Act
+            user.withdrawMoney(account, transaction);
+
+            // Assert
+            expect(account.moneyWithdrawn).toHaveBeenCalled();
 
         });
     });

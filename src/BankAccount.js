@@ -13,6 +13,10 @@ class BankAccount {
         return this.#transactions;
     }
 
+    moneyWithdrawn = () => {
+        return this.#transactions;
+    }
+
     // depositMoney = (userAccount) => {
     //     // console.log(userAccount)
     //     if (!userAccount?.getTransaction) {
