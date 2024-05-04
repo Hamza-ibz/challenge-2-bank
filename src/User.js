@@ -6,7 +6,11 @@ class User {
     constructor(username, password, userAccount) {
         this.#username = username;
         this.#password = password;
+        // if (!userAccount?.getTransaction) {
+        //     this.#userAccount = {};
+        // } else {
         this.#userAccount = userAccount;
+        // }
     }
 
     getUsername() {
@@ -23,6 +27,18 @@ class User {
 
     login(username, password) {
         if (username === this.#username && password === this.#password) {
+            return true;
+        }
+        return false;
+    }
+
+    depositMoney = (userAccount) => {
+
+        if (!userAccount?.moneyDeposited) {
+            return false;
+        }
+        else {
+            userAccount.moneyDeposited();
             return true;
         }
     }
