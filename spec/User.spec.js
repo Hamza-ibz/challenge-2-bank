@@ -1,9 +1,8 @@
-// import BankAccount from '../src/BankAccount.js';
 import User from '../src/User.js';
 
-describe('User tests:', () => {
+describe("User tests:", () => {
 
-    describe('login tests', () => {
+    describe("login tests", () => {
 
         let user;
 
@@ -14,10 +13,10 @@ describe('User tests:', () => {
             user = undefined;
         });
 
-        it('Correct username and password should give a successfully login, returning true', () => {
+        it("Correct username and password should give a successfully login, returning true", () => {
             // Arrange
-            let username = 'Hamza';
-            let password = 'Password';
+            let username = "Hamza";
+            let password = "Password";
             let expected = true;
 
             // Act
@@ -28,10 +27,10 @@ describe('User tests:', () => {
 
         });
 
-        it('Incorrect username and password should give a failed login, returning false', () => {
+        it("Incorrect username and password should give a failed login, returning false", () => {
             // Arrange
-            let username = 'Tim';
-            let password = 'DontKnow';
+            let username = "Tim";
+            let password = "DontKnow";
             let expected = false;
 
             // Act
@@ -42,7 +41,7 @@ describe('User tests:', () => {
 
         });
 
-        it('Null username and password should give a failed login, returning false', () => {
+        it("Null username and password should give a failed login, returning false", () => {
             // Arrange
             let username = null;
             let password = null;
@@ -59,7 +58,7 @@ describe('User tests:', () => {
     });
 
 
-    describe('User deposits to an account', () => {
+    describe("User deposits to a Bank account", () => {
 
         let user, account, transaction;
         // let bankAccount = new BankAccount();
@@ -71,7 +70,7 @@ describe('User tests:', () => {
 
             });
             transaction = jasmine.createSpyObj("transaction", {
-                getType: 'Credit'
+                getType: "Credit"
 
             });
 
@@ -83,7 +82,7 @@ describe('User tests:', () => {
             transaction = undefined;
         });
 
-        // it('Check userAccount is instance of a BankAccount', () => {
+        // it("Check userAccount is instance of a BankAccount", () => {
         //     // Arrange
         //     // Act
         //     // let actual = user.login(username, password);
@@ -93,7 +92,7 @@ describe('User tests:', () => {
 
         // });
 
-        it('Check argument for depositMoney, return false if argument is not a BankAccount instance', () => {
+        it("Check argument for ''depositMoney'', return false if argument is not a 'BankAccount' instance", () => {
             // Arrange
             let expected = false;
             // Act
@@ -104,7 +103,7 @@ describe('User tests:', () => {
 
         });
 
-        it('Check argument for depositMoney, return false if argument is not a Transaction instance', () => {
+        it("Check argument for 'depositMoney', return false if argument is not a 'Transaction' instance", () => {
             // Arrange
             let expected = false;
             // Act
@@ -115,7 +114,7 @@ describe('User tests:', () => {
 
         });
 
-        it('should return true if instance of BankAccount and Transaction are used as arguments', () => {
+        it("should return true if instance of 'BankAccount' and 'Transaction' are used as arguments", () => {
             // Arrange
             let expected = true;
             // Act
@@ -126,7 +125,7 @@ describe('User tests:', () => {
 
         });
 
-        it('should call the BankAccount moneyDeposited function when user deposit to the Bank account', () => {
+        it("should call the 'BankAccount' 'moneyDeposited' function when user deposit to the Bank account", () => {
             // Arrange
 
             // Act
@@ -141,7 +140,7 @@ describe('User tests:', () => {
 
 
 
-    describe('User withdraw from an account', () => {
+    describe("User withdraw from a Bank account", () => {
 
         let user, account, transaction;
         // let bankAccount = new BankAccount();
@@ -153,7 +152,7 @@ describe('User tests:', () => {
 
             });
             transaction = jasmine.createSpyObj("transaction", {
-                getType: 'Debit'
+                getType: "Debit"
 
             });
 
@@ -165,7 +164,7 @@ describe('User tests:', () => {
             transaction = undefined;
         });
 
-        // it('Check userAccount is instance of a BankAccount', () => {
+        // it("Check userAccount is instance of a BankAccount", () => {
         //     // Arrange
         //     // Act
         //     // let actual = user.login(username, password);
@@ -175,7 +174,7 @@ describe('User tests:', () => {
 
         // });
 
-        it('Check argument for withdrawMoney, return false if argument is not a BankAccount instance', () => {
+        it("Check argument for 'withdrawMoney', return false if argument is not a 'BankAccount' instance", () => {
             // Arrange
             let expected = false;
             // Act
@@ -186,7 +185,7 @@ describe('User tests:', () => {
 
         });
 
-        it('Check argument for withdrawMoney, return false if argument is not a Transaction instance', () => {
+        it("Check argument for 'withdrawMoney', return false if argument is not a 'Transaction' instance", () => {
             // Arrange
             let expected = false;
             // Act
@@ -197,7 +196,7 @@ describe('User tests:', () => {
 
         });
 
-        it('should return true if instance of BankAccount and Transaction are used as arguments', () => {
+        it("should return true if instance of 'BankAccount' and 'Transaction' are used as arguments", () => {
             // Arrange
             let expected = true;
             // Act
@@ -208,7 +207,7 @@ describe('User tests:', () => {
 
         });
 
-        it('should call the BankAccount moneyWithdrawn function when user withdraw from the Bank account', () => {
+        it("should call the 'BankAccount' 'moneyWithdrawn' function when user withdraw from the Bank account", () => {
             // Arrange
 
             // Act
