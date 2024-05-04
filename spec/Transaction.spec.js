@@ -1,6 +1,6 @@
 import Transaction from '../src/Transaction.js'
 
-describe("Transaction test:", () => {
+describe("Transaction tests:", () => {
     describe("Transaction Initialisation test ", () => {
 
         it("Should create a new instance of the Transaction class", () => {

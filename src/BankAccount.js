@@ -1,12 +1,17 @@
 class BankAccount {
     #transactions = [];
+    #balance;
 
-    constructor() {
-
+    constructor(balance = 0) {
+        this.#balance = balance;
     }
 
     getTransaction = () => {
         return this.#transactions;
+    }
+
+    getBalance = () => {
+        return this.#balance;
     }
 
     moneyDeposited = () => {
