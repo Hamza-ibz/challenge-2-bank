@@ -32,13 +32,13 @@ class User {
         return false;
     }
 
-    depositMoney = (userAccount) => {
+    depositMoney = (userAccount, transaction) => {
 
-        if (!userAccount?.moneyDeposited) {
+        if (!userAccount?.moneyDeposited || !transaction?.getType) {
             return false;
         }
         else {
-            userAccount.moneyDeposited();
+            userAccount.moneyDeposited(transaction);
             return true;
         }
     }

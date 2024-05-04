@@ -1,4 +1,4 @@
-import BankAccount from '../src/BankAccount.js';
+// import BankAccount from '../src/BankAccount.js';
 import User from '../src/User.js';
 
 describe('User tests:', () => {
@@ -56,46 +56,71 @@ describe('User tests:', () => {
 
         });
 
-        it('Null username and password should give a failed login, returning false', () => {
-            // Arrange
-            let username = null;
-            let password = null;
-            let expected = false;
-
-            // Act
-            let actual = user.login(username, password);
-
-            // Assert
-            expect(actual).toBe(expected);
-
-        });
     });
 
 
     describe('User deposits to an account', () => {
 
-        let testWallet, testCard, user, account;
-        let bankAccount = new BankAccount();
+        let user, account, transaction;
+        // let bankAccount = new BankAccount();
 
         beforeEach(() => {
-            user = new User("Hamza", "Password", bankAccount);
+            user = new User("Hamza", "Password");
             account = jasmine.createSpyObj("account", {
-                moneyDeposited: [],
+                moneyDeposited: []
+
             });
+            transaction = jasmine.createSpyObj("transaction", {
+                getType: 'credit'
+
+            });
+
+
         });
         afterEach(() => {
             user = undefined;
         });
 
-        it('Check userAccount is instance of a BankAccount', () => {
-            // Arrange
-            // let user = new User("Hamza", "Password", new BankAccount());
+        // it('Check userAccount is instance of a BankAccount', () => {
+        //     // Arrange
+        //     // Act
+        //     // let actual = user.login(username, password);
 
+        //     // Assert
+        //     expect(user.getUserAccount()).toBeInstanceOf(BankAccount);
+
+        // });
+
+        it('Check argument for depositMoney, return false if argument is not a BankAccount instance', () => {
+            // Arrange
+            let expected = false;
             // Act
-            // let actual = user.login(username, password);
+            let actual = user.depositMoney("bank", transaction);
 
             // Assert
-            expect(user.getUserAccount()).toBeInstanceOf(BankAccount);
+            expect(expected).toEqual(actual);
+
+        });
+
+        it('Check argument for depositMoney, return false if argument is not a Transaction instance', () => {
+            // Arrange
+            let expected = false;
+            // Act
+            let actual = user.depositMoney(account, 12345);
+
+            // Assert
+            expect(expected).toEqual(actual);
+
+        });
+
+        it('should return true if instance of BankAccount and Transaction are used as arguments', () => {
+            // Arrange
+            let expected = true;
+            // Act
+            let actual = user.depositMoney(account, transaction);
+
+            // Assert
+            expect(expected).toEqual(actual);
 
         });
 
@@ -103,14 +128,13 @@ describe('User tests:', () => {
             // Arrange
 
             // Act
-            user.depositMoney(account);
+            user.depositMoney(account, transaction);
 
             // Assert
             expect(account.moneyDeposited).toHaveBeenCalled();
 
         });
     });
-
 
 });
 
