@@ -1,3 +1,27 @@
+import User from '../src/User.js';
+
+describe('User tests:', () => {
+
+    describe('login tests', () => {
+        it('Correct username and password should give a successfully login, returning true', () => {
+            // Arrange
+            let user = new User('Hamza', 'Password');
+            let username = 'Hamza';
+            let password = 'Password';
+            let expected = true;
+
+            // Act
+            let actual = user.login(username, password);
+
+            // Assert
+            expect(actual).toBe(expected);
+
+        });
+    });
+
+});
+
+
 // User test
 
 // test login:-
