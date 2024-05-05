@@ -14,8 +14,22 @@ class BankAccount {
         return this.#balance;
     }
 
-    moneyDeposited = () => {
-        return this.#transactions;
+    moneyDeposited = (transaction) => {
+
+        if (!transaction?.getValue) {
+            return;
+        }
+        else {
+            let numericValue = parseFloat(transaction.getValue());
+            this.#balance += numericValue;;
+            this.#transactions.push(transaction);
+            // return this.#balance;
+        }
+
+        // let numericValue = parseFloat(transaction.getValue());
+
+        // this.#balance += numericValue;
+        // return this.#balance;
     }
 
     moneyWithdrawn = () => {
