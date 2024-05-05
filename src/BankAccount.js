@@ -27,17 +27,27 @@ class BankAccount {
 
             this.#balance += numericValue;;
             this.#transactions.push(transaction);
-            // return this.#balance;
         }
-
-        // let numericValue = parseFloat(transaction.getValue());
-
-        // this.#balance += numericValue;
-        // return this.#balance;
     }
 
-    moneyWithdrawn = () => {
-        return this.#transactions;
+    moneyWithdrawn = (transaction) => {
+        if (!transaction?.getValue) {
+            return;
+        }
+        else {
+            let numericValue = parseFloat(transaction.getValue());
+            if (isNaN(numericValue) || numericValue <= 0) {
+                return;
+            }
+
+            // if balance will be less than zero and we exceeded our overdraft limit
+            if ((this.#balance - numericValue) < 0) {
+                return;
+            }
+
+            this.#balance -= numericValue;;
+            this.#transactions.push(transaction);
+        }
     }
 
     // depositMoney = (userAccount) => {
