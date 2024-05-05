@@ -83,6 +83,56 @@ describe("BankAccount tests", () => {
             expect(bankAccount.getTransaction()[0]).toBe(expected);
         });
 
+        it("Insert multiple 'transaction' into the transaction array", () => {
+            //Arrange
+            let transaction2 = jasmine.createSpyObj("transaction2", {
+                getValue: 1500
+            });
+            let expected = 2;
+
+            //act
+            bankAccount.moneyDeposited(transaction);
+            bankAccount.moneyDeposited(transaction2);
+            let actual = bankAccount.getTransaction().length;
+
+            //Assert
+            expect(actual).toBe(expected);
+
+        });
+
+        it("Increase in balance when multiple 'transactions' are deposited when 'moneyDeposited' function is called", () => {
+            //Arrange
+            let transaction2 = jasmine.createSpyObj("transaction2", {
+                getValue: 1500
+            });
+            let expected = 3000;
+
+            //act
+            bankAccount.moneyDeposited(transaction);
+            bankAccount.moneyDeposited(transaction2);
+            let actual = bankAccount.getBalance();
+
+            //Assert
+            expect(bankAccount.getBalance()).toBe(3000);
+
+        });
+
+
+        it("Should not effect 'Balance' if the value amount of 'moneyDeposited' is negative", () => {
+            // Arrange
+            let transactionNegative = jasmine.createSpyObj("transaction2", {
+                getValue: -50
+            });
+            let expected = 0.0;
+
+            // Act
+            bankAccount.moneyDeposited(transactionNegative);
+
+            let actual = bankAccount.getBalance();
+
+            // Assert
+            expect(actual).toBe(expected);
+        });
 
 
     });

@@ -21,6 +21,10 @@ class BankAccount {
         }
         else {
             let numericValue = parseFloat(transaction.getValue());
+            if (isNaN(numericValue) || numericValue <= 0) {
+                return;
+            }
+
             this.#balance += numericValue;;
             this.#transactions.push(transaction);
             // return this.#balance;
