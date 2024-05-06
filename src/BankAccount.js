@@ -49,17 +49,6 @@ class BankAccount {
             this.#transactions.push(transaction);
         }
     }
-
-    // depositMoney = (userAccount) => {
-    //     // console.log(userAccount)
-    //     if (!userAccount?.getTransaction) {
-    //         console.log(userAccount.getTransaction())
-    //         return;
-    //     }
-    //     // else {
-    //     // this.#userAccount.moneyDeposited();
-    //     // }
-    // }
 }
 
 export default BankAccount;
