@@ -29,7 +29,7 @@ user.depositMoney(bankAccount, new Transaction("1000", "10/01/2012", "Credit"));
 console.log(BankStatementPrinter.printBankStatement(bankAccount.getTransaction(), bankAccount.getBalance()));
 console.log("\n");
 console.log("The user can deposit multiple transactions:");
-console.log("User deposited £1000 on 13th January 2012 with Credit Type\n");
+console.log("User deposited £2000 on 13th January 2012 with Credit Type\n");
 user.depositMoney(bankAccount, new Transaction("2000", "13/01/2012", "Credit"));
 console.log(BankStatementPrinter.printBankStatement(bankAccount.getTransaction(), bankAccount.getBalance()));
 console.log("\n");
