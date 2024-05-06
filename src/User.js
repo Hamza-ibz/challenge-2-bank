@@ -6,11 +6,7 @@ class User {
     constructor(username, password, userAccount) {
         this.#username = username;
         this.#password = password;
-        // if (!userAccount?.getTransaction) {
-        //     this.#userAccount = {};
-        // } else {
         this.#userAccount = userAccount;
-        // }
     }
 
     getUsername() {
@@ -25,6 +21,7 @@ class User {
         return this.#userAccount;
     }
 
+    // user name and password has to match for login
     login(username, password) {
         if (username === this.#username && password === this.#password) {
             return true;
@@ -34,6 +31,7 @@ class User {
 
     depositMoney = (userAccount, transaction) => {
 
+        // Makes sure argument has a moneyDeposited/getType function
         if (!userAccount?.moneyDeposited || !transaction?.getType) {
             return false;
         }
@@ -45,6 +43,7 @@ class User {
 
     withdrawMoney = (userAccount, transaction) => {
 
+        // Makes sure argument has a moneyWithdrawn/getType function
         if (!userAccount?.moneyWithdrawn || !transaction?.getType) {
             return false;
         }

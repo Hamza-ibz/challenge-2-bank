@@ -14,12 +14,15 @@ class BankAccount {
         return this.#balance;
     }
 
+
     moneyDeposited = (transaction) => {
 
+        // Makes sure argument has a getValue function
         if (!transaction?.getValue) {
             return;
         }
         else {
+            // convert value to float and check if its a number that is greater then 0
             let numericValue = parseFloat(transaction.getValue());
             if (isNaN(numericValue) || numericValue <= 0) {
                 return;
@@ -31,16 +34,20 @@ class BankAccount {
     }
 
     moneyWithdrawn = (transaction) => {
+        // Makes sure argument has a getValue function
+
         if (!transaction?.getValue) {
             return;
         }
         else {
+
+            // convert value to float and check if its a number that is greater then 0
             let numericValue = parseFloat(transaction.getValue());
             if (isNaN(numericValue) || numericValue <= 0) {
                 return;
             }
 
-            // if balance will be less than zero and we exceeded our overdraft limit
+            // makes sure balance above 0
             if ((this.#balance - numericValue) < 0) {
                 return;
             }
