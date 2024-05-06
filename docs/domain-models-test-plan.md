@@ -72,11 +72,11 @@ As a customer, <br>
 I want to view my account statements, <br>
 So that I can see the transaction history. <br>
 
-|        Object        |            Properties            |             Messages             |        Output        |
-| :------------------: | :------------------------------: | :------------------------------: | :------------------: |
-|     BankAccount      |          balance@double          |           getBalance()           |       @double        |
-|                      | transactions@Array[@Transaction] |        getTransactions()         | @Array[@Transaction] |
-| BankStatementPrinter |                                  | printBankStatement(@BankAccount) |       @String        |
+|        Object        |            Properties            |                   Messages                   |        Output        |
+| :------------------: | :------------------------------: | :------------------------------------------: | :------------------: |
+|     BankAccount      |          balance@double          |                 getBalance()                 |       @double        |
+|                      | transactions@Array[@Transaction] |              getTransactions()               | @Array[@Transaction] |
+| BankStatementPrinter |                                  | printBankStatement(@Transaction,Balance@int) |       @String        |
 
 
 ### Kanban Board
