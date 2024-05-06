@@ -82,16 +82,6 @@ describe("User tests:", () => {
             transaction = undefined;
         });
 
-        // it("Check userAccount is instance of a BankAccount", () => {
-        //     // Arrange
-        //     // Act
-        //     // let actual = user.login(username, password);
-
-        //     // Assert
-        //     expect(user.getUserAccount()).toBeInstanceOf(BankAccount);
-
-        // });
-
         it("Check argument for ''depositMoney'', return false if argument is not a 'BankAccount' instance", () => {
             // Arrange
             let expected = false;
