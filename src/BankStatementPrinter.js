@@ -19,6 +19,7 @@ class BankStatementPrinter {
         return `${transaction.getDate()} ||         || ${this.valueFormat(transaction.getValue())} || ${this.valueFormat(balance)}`;
     }
 
+    // print row of data depending on 'type'
     static printDetails(transaction, balance) {
         if (transaction.getType() === "Credit") {
             return console.log(this.creditPrint(transaction, balance));
@@ -38,6 +39,8 @@ class BankStatementPrinter {
 
         console.log("date       || credit  || debit  || balance");
         let currentBalance = balance;
+
+        // go through transactions and correct balance to present on console
         transactions.forEach((transaction) => {
             this.printDetails(transaction, currentBalance);
             if (transaction.getType() === "Credit") {

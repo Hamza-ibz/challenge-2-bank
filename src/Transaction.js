@@ -1,22 +1,22 @@
 class Transaction {
-    value;
-    date;
-    type;
+    #value;
+    #date;
+    #type;
 
     constructor(value, date, type) {
-        this.value = value;
-        this.date = date;
-        this.type = type;
+        this.#value = value;
+        this.#date = date;
+        this.#type = type;
     }
 
     getValue() {
-        return this.value;
+        return this.#value;
     }
     getDate() {
-        return this.date;
+        return this.#date;
     }
     getType() {
-        return this.type;
+        return this.#type;
     }
 }
 export default Transaction;
