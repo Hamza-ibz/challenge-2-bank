@@ -1,3 +1,4 @@
+import chalk from "chalk";
 class BankStatementPrinter {
 
     constructor() {
@@ -11,12 +12,12 @@ class BankStatementPrinter {
 
     // format on the printing of credit type in console
     static creditPrint(transaction, balance) {
-        return `${transaction.getDate()} || ${this.valueFormat(transaction.getValue())} ||        || ${this.valueFormat(balance)}`;
+        return chalk.green(`${transaction.getDate()} || ${this.valueFormat(transaction.getValue())} ||        || ${this.valueFormat(balance)}`);
     }
 
     // format on the printing of debit type in console
     static debitPrint(transaction, balance) {
-        return `${transaction.getDate()} ||         || ${this.valueFormat(transaction.getValue())} || ${this.valueFormat(balance)}`;
+        return chalk.red(`${transaction.getDate()} ||         || ${this.valueFormat(transaction.getValue())} || ${this.valueFormat(balance)}`);
     }
 
     // print row of data depending on 'type'
