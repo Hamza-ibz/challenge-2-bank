@@ -78,26 +78,14 @@ So that I can see the transaction history. <br>
 |                      | transactions@Array[@Transaction] |        getTransactions()         | @Array[@Transaction] |
 | BankStatementPrinter |                                  | printBankStatement(@BankAccount) |       @String        |
 
-### Additional Features
-
-#### User story 6:-
-As an , <br>
-I want to , <br>
-So the . <br>
-
-| Object | Properties | Messages | Output |
-| :----: | :--------: | :------: | :----: |
-|        |            |          |        |
-
-#### User story 7:-
-As an , <br>
-I want to , <br>
-So the . <br>
-
-| Object | Properties | Messages | Output |
-| :----: | :--------: | :------: | :----: |
-|        |            |          |        |
 
 ### Kanban Board
+<img src="first.png" width="200" style="display: block; margin: 0 auto" />
+<img src="second.png" width="200" style="display: block; margin: 0 auto"/>
+<img src="third.png" width="200" style="display: block; margin: 0 auto"/>
+<img src="forth.png" width="200" style="display: block; margin: 0 auto"/>
+<img src="fifth.png" width="200" style="display: block; margin: 0 auto"/>
+<img src="last.png" width="200" style="display: block; margin: 0 auto"/>
 
 link to kanban board:-
+https://miro.com/app/board/uXjVKLSb69w=/ 
